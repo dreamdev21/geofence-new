@@ -38,4 +38,9 @@
     <div class="row" style="text-align:center;">
         <button class="signup" ion-button (click)="SaveLocation()">SET</button>
     </div>
+    <div class="row">
+        <div class="col-12" ng-if="location.attrUrl">
+            <img src="{{location.attrUrl}}">
+        </div>
+    </div>
 </ion-content>

@@ -54,6 +54,7 @@ export class SignupPage {
       });
       toast.present();
     } else {
+      this.user.role = 0;
       this.firebaseProvider.registerUser(this.user);
        let toast = this.toastCtrl.create({
          message: "You are registered successfully!",

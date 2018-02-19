@@ -76,10 +76,10 @@ export class LoginPage {
         if (user.role == 0) {
           that.storage.set("CurrentUser", that.user);
           that.navCtrl.push(ClientlocationPage);
-        } else{
-          that.storage.set("currentUser", that.user);
-          that.navCtrl.push(SetlocationPage);
-        }
+        } else if (user.role == 1) {
+                 that.storage.set("currentUser", that.user);
+                 that.navCtrl.push(SetlocationPage);
+               }
       }
     });
   }
