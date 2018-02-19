@@ -12,6 +12,13 @@ import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { FIREBASE_CONFIG } from "./app.firebase.config";
 import { Storage } from "@ionic/storage";
 import { IonicStorageModule } from "@ionic/storage";
+import { Geofence } from "@ionic-native/geofence";
+import { Geolocation } from "@ionic-native/geolocation";
+import {
+  NativeGeocoder,
+  NativeGeocoderReverseResult,
+  NativeGeocoderForwardResult
+} from "@ionic-native/native-geocoder";
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -19,6 +26,7 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { ClientlocationPage } from '../pages/clientlocation/clientlocation';
+import { LocationProvider } from '../providers/location/location';
 @NgModule({
   declarations: [MyApp, HomePage, LoginPage, SignupPage, ClientlocationPage],
   imports: [
@@ -36,7 +44,11 @@ import { ClientlocationPage } from '../pages/clientlocation/clientlocation';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    FirebaseProvider
+    FirebaseProvider,
+    Geofence,
+    Geolocation,
+    LocationProvider,
+    NativeGeocoder
   ]
 })
 export class AppModule {}
