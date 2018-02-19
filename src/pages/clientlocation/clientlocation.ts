@@ -78,7 +78,7 @@ export class ClientlocationPage {
       center: amsterdam,
       radius: this.LocationProvider.miles
     });
-
+    console.log(amsterdam);
     cityCircle.setMap(this.map);
   }
 

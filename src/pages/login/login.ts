@@ -13,6 +13,7 @@ import { Http } from "@angular/http";
 import { Storage } from "@ionic/storage";
 import { SignupPage } from "../signup/signup";
 import { ClientlocationPage } from "../clientlocation/clientlocation";
+import { SetlocationPage } from "../setlocation/setlocation";
 /**
  * Generated class for the LoginPage page.
  *
@@ -75,9 +76,9 @@ export class LoginPage {
         if (user.role == 0) {
           that.storage.set("CurrentUser", that.user);
           that.navCtrl.push(ClientlocationPage);
-        } else {
-          // that.storage.set("currentUser", that.user);
-          // that.navCtrl.push(ClientlocationPage);
+        } else{
+          that.storage.set("currentUser", that.user);
+          that.navCtrl.push(SetlocationPage);
         }
       }
     });

@@ -19,6 +19,8 @@ import {
   NativeGeocoderReverseResult,
   NativeGeocoderForwardResult
 } from "@ionic-native/native-geocoder";
+import { LocationProvider } from "../providers/location/location";
+import { Camera, CameraOptions } from "@ionic-native/camera";
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -26,9 +28,16 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { ClientlocationPage } from '../pages/clientlocation/clientlocation';
-import { LocationProvider } from '../providers/location/location';
+import { SetlocationPage } from '../pages/setlocation/setlocation';
 @NgModule({
-  declarations: [MyApp, HomePage, LoginPage, SignupPage, ClientlocationPage],
+  declarations: [
+    MyApp,
+    HomePage,
+    LoginPage,
+    SignupPage,
+    ClientlocationPage,
+    SetlocationPage
+  ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -39,7 +48,14 @@ import { LocationProvider } from '../providers/location/location';
     HttpClientModule
   ],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, HomePage, LoginPage, SignupPage, ClientlocationPage],
+  entryComponents: [
+    MyApp,
+    HomePage,
+    LoginPage,
+    SignupPage,
+    ClientlocationPage,
+    SetlocationPage
+  ],
   providers: [
     StatusBar,
     SplashScreen,
@@ -48,7 +64,7 @@ import { LocationProvider } from '../providers/location/location';
     Geofence,
     Geolocation,
     LocationProvider,
-    NativeGeocoder
-  ]
+    NativeGeocoder,
+    Camera  ]
 })
 export class AppModule {}
