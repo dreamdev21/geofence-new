@@ -21,6 +21,8 @@ import {
 } from "@ionic-native/native-geocoder";
 import { LocationProvider } from "../providers/location/location";
 import { Camera, CameraOptions } from "@ionic-native/camera";
+import { OneSignal } from "@ionic-native/onesignal";
+
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -65,6 +67,7 @@ import { SetlocationPage } from '../pages/setlocation/setlocation';
     Geolocation,
     LocationProvider,
     NativeGeocoder,
+    OneSignal,
     Camera  ]
 })
 export class AppModule {}

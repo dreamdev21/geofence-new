@@ -1,6 +1,6 @@
 export interface Location {
-  lat: number;
-  lng: number;
+  lat: string;
+  lng: string;
   miles: number;
   attrUrl: URL;
 }
