@@ -17,6 +17,8 @@ import { FirebaseProvider } from "../../providers/firebase/firebase";
 import firebase from "firebase";
 import { Http } from "@angular/http";
 import { Camera } from "@ionic-native/camera";
+import { ModalController } from "ionic-angular";
+
 
 /**
  * Generated class for the SetlocationPage page.
@@ -47,7 +49,8 @@ export class SetlocationPage {
     private loadingCtrl: LoadingController,
     public actionSheetCtrl: ActionSheetController,
     public toastCtrl: ToastController,
-    public firebaseProvider: FirebaseProvider
+    public firebaseProvider: FirebaseProvider,
+    public modalCtrl : ModalController
   ) {}
 
   ionViewDidLoad() {
@@ -56,8 +59,8 @@ export class SetlocationPage {
   SaveLocation() {
     var that = this;
     var firedb = firebase.database();
-    if(that.location.lat){
-      if(that.location.lng){
+    if (that.location.lat) {
+      if (that.location.lng) {
         if (that.location.miles) {
           if (that.location.attrUrl) {
             this.afd.list("/locations/").push(that.location);
@@ -68,10 +71,10 @@ export class SetlocationPage {
         } else {
           that.presentToast("Please enter Miles");
         }
-      }else{
+      } else {
         that.presentToast("Please enter Longitude");
       }
-    }else{
+    } else {
       that.presentToast("Please enter Latitude");
     }
 
@@ -198,5 +201,22 @@ export class SetlocationPage {
     });
     alert.present();
   }
+  previewLocation(){
+    if (this.location.lat) {
+      if (this.location.lng) {
+        if (this.location.miles) {
+          var data = { lat: Number(this.location.lat), lng: Number(this.location.lng), miles: Number(this.location.miles) };
+          var modalPage = this.modalCtrl.create("ModalmapPage", data);
+          modalPage.present();
+        } else {
+          this.presentToast("Please enter Miles");
+        }
+      } else {
+        this.presentToast("Please enter Longitude");
+      }
+    } else {
+      this.presentToast("Please enter Latitude");
+    }
 
+  }
 }

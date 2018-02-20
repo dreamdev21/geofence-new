@@ -29,18 +29,20 @@
             <ion-label>Miles</ion-label>
             <ion-input type="number" [(ngModel)]="location.miles"></ion-input>
         </ion-item>
-
+        <ion-row>
+            <ion-col col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6>
+                <button class="signup" ion-button (click)="presentActionSheet()">+ Add Image</button>
+            </ion-col>
+            <ion-col col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6>
+                <button class="signup" ion-button (click)="previewLocation()">Preview</button>
+            </ion-col>
+        </ion-row>
     </ion-list>
-    <div class="row" style="text-align:center;">
-        <button class="signup" ion-button (click)="presentActionSheet()">+ Add Image</button>
-    </div>
 
-    <div class="row" style="text-align:center;">
-        <button class="signup" ion-button (click)="SaveLocation()">SET</button>
-    </div>
     <div class="row">
-        <div class="col-12" ng-if="location.attrUrl">
-            <img src="{{location.attrUrl}}">
-        </div>
+        <img src="{{location.attrUrl}}" style="width:50%;height:50%;" *ngIf="location.attrUrl">
     </div>
+    <!-- <div class="row" style="text-align:center"> -->
+    <button class="signup" ion-button (click)="SaveLocation()">SET</button>
+    <!-- </div> -->
 </ion-content>

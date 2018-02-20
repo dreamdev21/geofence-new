@@ -1,0 +1,10 @@
+page-modalmap {
+    .scroll {
+        height: 100%
+    }
+    #map {
+        overflow: initial !important;
+        width: 100%;
+        height: 100%;
+    }
+}
