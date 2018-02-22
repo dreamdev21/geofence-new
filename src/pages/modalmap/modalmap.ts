@@ -38,7 +38,8 @@ export class ModalmapPage {
       .then(position => {
         var lat = this.navParams.get("lat");
         var lng = this.navParams.get("lng");
-
+        console.log(lat);
+        console.log(lng);
         let latLng = new google.maps.LatLng(lat, lng);
         let mapOptions = {
           center: latLng,

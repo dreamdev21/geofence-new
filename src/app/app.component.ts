@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OneSignal } from "@ionic-native/onesignal";
 import { LoginPage } from '../pages/login/login';
+import { Geofence } from '@ionic-native/geofence';
 @Component({
   templateUrl: "app.html"
 })
@@ -13,6 +14,7 @@ export class MyApp {
   constructor(
     private oneSignal: OneSignal,
     private platform: Platform,
+    private geofence:Geofence,
     statusBar: StatusBar,
     splashScreen: SplashScreen
   ) {
@@ -39,7 +41,10 @@ export class MyApp {
 
       this.oneSignal.endInit();
 
-            console.log("initializing app");
+      console.log("initializing app");
+
+      this.geofence.onTransitionReceived(
+      );
 
     });
   }
